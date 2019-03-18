@@ -36,11 +36,9 @@ class Video extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-  console.log('ownProps', ownProps);
   const video = state.videos.filter(
     video => video.videoId === ownProps.match.params.videoId
   )[0];
-  console.log(video);
   return {
     video
   };
