@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import { Route, NavLink, Switch } from 'react-router-dom';
 import './App.css';
 import Home from './Home';
+
+/** Overall youtube search application :
+ *
+ * - shows header, nav links, and contains routes to:
+ *   - homepage
+ *   - individual video
+ */
 class App extends Component {
   render() {
     return (
