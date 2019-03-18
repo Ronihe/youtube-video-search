@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Route, NavLink, Switch } from 'react-router-dom';
+import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import Home from './Home';
+import Video from '../containers/Video';
 
 /** Overall youtube search application :
  *
@@ -30,8 +31,12 @@ class App extends Component {
           {/* <Route exact path="/new"
                  render={(props) => <Video {...props} />} /> */}
           <Route exact path="/" render={() => <Home />} />
-          {/* <Route exact path="/:postId"
-                 render={(props) => <Post {...props} />} /> */}
+          <Route
+            exact
+            path="/:videoId"
+            render={props => <Video {...props} />}
+          />
+          <Redirect to="/" />
         </Switch>
       </div>
     );
