@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { NEXT_PAGE, GET_Q } from './types';
+import { NEXT_PAGE, GET_Q, PREVIOUS_PAGE } from './types';
 
 const BASE_URL = 'https://www.googleapis.com/youtube/v3/search';
 const MAX = 12;
@@ -12,6 +12,7 @@ export function getVideos(pageToken = '', q = '') {
       // const response = await axios.get(
       //   `${BASE_URL}?key=${KEY}&q=${q}&maxResults=${MAX}&part=snippet&pageToken=${pageToken}&type=video`
       // );
+      console.log('next page is here?');
       const response = await axios.get(`${BASE_URL}`, {
         params: {
           key: KEY,
@@ -22,7 +23,7 @@ export function getVideos(pageToken = '', q = '') {
           type: 'video'
         }
       });
-
+      console.log(response);
       const nextPageToken = response.data.nextPageToken;
       const videos = response.data.items.map(video => ({
         videoId: video.id.videoId,
@@ -37,8 +38,8 @@ export function getVideos(pageToken = '', q = '') {
       // if there is no pageToken, dispatch getInitialVideos
       if (!pageToken)
         return dispatch(getInitialVideos(q, nextPageToken, videos));
-
-      // return dispatch(getJokes(jokesWithVotes, page));
+      // if there is pageToken, dispatch getNewVideos
+      if (pageToken) return dispatch(getNewVideos(nextPageToken, videos));
     } catch (err) {
       alert(err);
       console.log('error');
@@ -55,12 +56,16 @@ function getInitialVideos(q, nextPageToken, videos) {
   };
 }
 
-// https://www.youtube.com/watch?v='this is the video ID'
-// function getNewVideos(q, nextPageToken, videos) {
-//   return {
-//     type: GET_Q,
-//     q,
-//     nextPageToken,
-//     videos
-//   };
-// }
+function getNewVideos(nextPageToken, videos) {
+  return {
+    type: NEXT_PAGE,
+    nextPageToken,
+    videos
+  };
+}
+
+export function previousVideos() {
+  return {
+    type: PREVIOUS_PAGE
+  };
+}

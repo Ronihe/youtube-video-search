@@ -1,18 +1,30 @@
-import { GET_Q, NEXT_PAGE } from './actions/types';
+import { GET_Q, NEXT_PAGE, PREVIOUS_PAGE } from './actions/types';
 
-function rootReducer(state = { q: '', nextPageToken: '', videos: [] }, action) {
+function rootReducer(
+  state = { q: '', nextPageToken: '', page: 1, videos: [] },
+  action
+) {
   switch (action.type) {
-    // case NEXT_PAGE:
-    //   return {
-    //     nextPage: action.page,
-    //     jokes: [...state.jokes, ...action.jokes]
-    //   };
-
     case GET_Q:
       return {
         q: action.q,
+        page: state.page,
         nextPageToken: action.nextPageToken,
         videos: action.videos
+      };
+    case NEXT_PAGE:
+      const newPage = state.page + 1;
+      return {
+        page: newPage,
+        nextPageToken: action.nextPageToken,
+        videos: [...state.videos, ...action.videos]
+      };
+    case PREVIOUS_PAGE:
+      const prePage = state.page > 1 ? state.page - 1 : 1;
+      return {
+        page: prePage,
+        nextPageToken: action.nextPageToken,
+        videos: [...state.videos]
       };
 
     default:
