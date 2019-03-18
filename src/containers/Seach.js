@@ -11,7 +11,7 @@ import { getVideos } from '../actions/videos';
 class Search extends Component {
   constructor(props) {
     super(props);
-    this.state = { search: '' };
+    this.state = { search: this.props.search };
   }
 
   handleChange = evt => {
@@ -42,11 +42,13 @@ class Search extends Component {
   }
 }
 
-Search.defaultProps = {};
-
-Search.propTypes = {};
+function mapStateToProps(state) {
+  return {
+    search: state.q
+  };
+}
 const connected = connect(
-  null,
+  mapStateToProps,
   { getVideos }
 );
 
