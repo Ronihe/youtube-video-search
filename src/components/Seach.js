@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { GET_Q } from '../actions/types';
 
 /** Search input form
  *
@@ -21,6 +22,7 @@ class Search extends Component {
 
   handleSubmit = evt => {
     evt.preventDefault();
+    this.props.dispatch({ type: GET_Q });
   };
 
   render() {
