@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { GET_Q } from '../actions/types';
+import { getVideos } from '../actions/videos';
 
 /** Search input form
  *
@@ -22,7 +22,7 @@ class Search extends Component {
 
   handleSubmit = evt => {
     evt.preventDefault();
-    this.props.dispatch({ type: GET_Q });
+    this.props.getVideos('', this.state.search);
   };
 
   render() {
@@ -45,5 +45,9 @@ class Search extends Component {
 Search.defaultProps = {};
 
 Search.propTypes = {};
+const connected = connect(
+  null,
+  { getVideos }
+);
 
-export default connect()(Search);
+export default connected(Search);
