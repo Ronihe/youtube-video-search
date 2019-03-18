@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getVideos, previousVideos } from '../actions/videos';
+import { getVideos, previousVideos, getNextVideos } from '../actions/videos';
 class Pagination extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.props.previousVideos}> Previous </button>
+        <button onClick={this.props.previousVideos}> previous </button>
         {this.props.page}
         <button
-          onClick={() => {
-            this.props.getVideos(this.props.pageToken, this.props.search);
-          }}
+          onClick={
+            this.props.page * 12 < this.props.length
+              ? this.props.getNextVideos
+              : () => {
+                  this.props.getVideos(this.props.pageToken, this.props.search);
+                }
+          }
         >
           Next
         </button>
@@ -20,6 +24,7 @@ class Pagination extends Component {
 }
 function mapStateToProps(state) {
   return {
+    length: state.videos.length,
     page: state.page,
     pageToken: state.nextPageToken,
     search: state.q
@@ -27,6 +32,6 @@ function mapStateToProps(state) {
 }
 const connected = connect(
   mapStateToProps,
-  { getVideos, previousVideos }
+  { getVideos, previousVideos, getNextVideos }
 );
 export default connected(Pagination);

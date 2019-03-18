@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { NEXT_PAGE, GET_Q, PREVIOUS_PAGE } from './types';
+import { NEXT_PAGE, GET_Q, PREVIOUS_PAGE, GET_NEW_VIDEOS } from './types';
 
 const BASE_URL = 'https://www.googleapis.com/youtube/v3/search';
 const MAX = 12;
@@ -58,7 +58,7 @@ function getInitialVideos(q, nextPageToken, videos) {
 
 function getNewVideos(nextPageToken, videos) {
   return {
-    type: NEXT_PAGE,
+    type: GET_NEW_VIDEOS,
     nextPageToken,
     videos
   };
@@ -67,5 +67,11 @@ function getNewVideos(nextPageToken, videos) {
 export function previousVideos() {
   return {
     type: PREVIOUS_PAGE
+  };
+}
+
+export function getNextVideos() {
+  return {
+    type: NEXT_PAGE
   };
 }
