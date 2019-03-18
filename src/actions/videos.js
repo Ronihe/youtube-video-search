@@ -22,7 +22,7 @@ export function getVideos(pageToken = '', q = '') {
         description: video.description
       }));
       // if there is no morevideos
-      // if there is pageToken,
+      // if there is no  pageToken, dispatch getInitialVideos
       // return dispatch(getJokes(jokesWithVotes, page));
     } catch (err) {
       alert(err);
@@ -31,9 +31,20 @@ export function getVideos(pageToken = '', q = '') {
   };
 }
 
-function getInitialVideos(q) {
+function getInitialVideos(q, nextPageToken, videos) {
   return {
     type: GET_Q,
-    q
+    q,
+    nextPageToken,
+    videos
   };
 }
+
+// function getNewVideos(q, nextPageToken, videos) {
+//   return {
+//     type: GET_Q,
+//     q,
+//     nextPageToken,
+//     videos
+//   };
+// }
