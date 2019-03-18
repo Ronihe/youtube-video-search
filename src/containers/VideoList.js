@@ -14,9 +14,10 @@ class VideoList extends Component {
   }
 }
 function mapStateToProps(state) {
-  console.log(state.page, state.videos.slice(state.page - 1, state.page + 11));
+  const startIdx = (state.page - 1) * 12;
+  const endIdx = startIdx + 11;
   return {
-    currentPageVideos: state.videos.slice(state.page - 1, state.page + 11)
+    currentPageVideos: state.videos.slice(startIdx, endIdx)
   };
 }
 const connected = connect(mapStateToProps);
