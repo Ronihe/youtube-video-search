@@ -9,7 +9,6 @@ const KEY = 'AIzaSyCY6AZpSw-4mNJRbmCn_Bp8T4jTiANrwjM';
 export function getVideos(pageToken = '', q = '') {
   return async function(dispatch) {
     try {
-      console.log('am I here');
       // const response = await axios.get(
       //   `${BASE_URL}?key=${KEY}&q=${q}&maxResults=${MAX}&part=snippet&pageToken=${pageToken}&type=video`
       // );
@@ -28,6 +27,7 @@ export function getVideos(pageToken = '', q = '') {
       const videos = response.data.items.map(video => ({
         videoId: video.id.videoId,
         src: video.snippet.thumbnails.medium.url,
+        channel: video.snippet.channelTitle,
         title: video.snippet.title,
         publishedAt: video.snippet.publishedAt,
         description: video.snippet.description

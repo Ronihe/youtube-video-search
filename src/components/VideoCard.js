@@ -3,7 +3,6 @@ import './VideoCard.css';
 import { Link } from 'react-router-dom';
 class VideoCard extends Component {
   render() {
-    console.log(this.props);
     return (
       <div className="VideoCard">
         <Link to={'/' + this.props.videoId}>
