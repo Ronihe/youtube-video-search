@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 /** Search input form
  *
@@ -20,23 +21,18 @@ class Search extends Component {
 
   handleSubmit = evt => {
     evt.preventDefault();
-    // dispatch the
   };
 
   render() {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          {/* <div class="form-group"> */}
           <input
             onChange={this.handleChange}
-            // id="commentform-text"
             name="search"
             placeholder="Search"
-            // className="form-control"
             value={this.state.search}
           />
-          {/* </div> */}
           <button> Search </button>
         </form>
       </div>
@@ -48,4 +44,4 @@ Search.defaultProps = {};
 
 Search.propTypes = {};
 
-export default Search;
+export default connect()(Search);
