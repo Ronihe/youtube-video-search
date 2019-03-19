@@ -52,33 +52,21 @@ describe('actions', () => {
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
+describe('async actions', () => {
+  afterEach(() => {
+    fetchMock.restore();
+  });
 
-// describe('async actions', () => {
-//   afterEach(() => {
-//     fetchMock.restore();
-//   });
+  it('creates getInitialVideos when user put in submit search and getVideos invoked', () => {
+    const store = mockStore();
 
-//   it('creates getInitialVideos when user put in submit search and getVideos invoked', () => {
-//     fetchMock.getOnce(`${BASE_URL}`, {
-//       params: {
-//         key: KEY,
-//         q,
-//         pageToken: '',
-//         maxResults: MAX,
-//         part: 'snippet',
-//         type: 'video'
-//       }
-//     });
-
-//     const expectedActions = [
-//       { type: types.d },
-//       { type: types.FETCH_TODOS_SUCCESS, body: { todos: ['do something'] } }
-//     ];
-//     const store = mockStore({ todos: [] });
-
-//     return store.dispatch(actions.fetchTodos()).then(() => {
-//       // return of async actions
-//       expect(store.getActions()).toEqual(expectedActions);
-//     });
-//   });
-// });
+    return store.dispatch(actions.getVideos('', q)).then(() => {
+      // return of async actions
+      expect(store.getActions()[0]).toHaveProperty('nextPageToken');
+      expect(store.getActions()[0]).toHaveProperty('q');
+      expect(store.getActions()[0]).toHaveProperty('type');
+      expect(store.getActions()[0]).toHaveProperty('videos');
+      expect(store.getActions()[0].videos.length).toBe(12);
+    });
+  });
+});

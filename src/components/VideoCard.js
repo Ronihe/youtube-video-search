@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 class VideoCard extends Component {
   render() {
     return (
@@ -26,6 +27,12 @@ class VideoCard extends Component {
 }
 
 VideoCard.defaultProps = {};
-VideoCard.propTypes = {};
+VideoCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
+  videoId: PropTypes.string.isRequired,
+  publishedAt: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired
+};
 
 export default VideoCard;

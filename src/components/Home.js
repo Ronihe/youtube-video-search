@@ -14,8 +14,4 @@ class Home extends Component {
   }
 }
 
-Home.defaultProps = {};
-
-Home.propTypes = {};
-
 export default Home;
