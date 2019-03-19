@@ -13,16 +13,13 @@ class VideoList extends Component {
   }
 
   infiniteScroll = async () => {
-    if (
-      document.body.scrollHeight - window.innerHeight - window.scrollY <=
-      10
-    ) {
-      console.log('Iam smaller than 10');
+    if (document.body.scrollHeight - window.innerHeight - window.scrollY <= 0) {
       if (this.props.page * 12 < this.props.length) {
         this.props.getNextVideos();
       } else {
         await this.props.getVideos(this.props.pageToken, this.props.search);
       }
+
       document.documentElement.scrollTop = 100;
     }
   };
@@ -32,7 +29,10 @@ class VideoList extends Component {
     return (
       <div className="videoListWithSeach">
         {this.props.search ? (
-          <h5>current Search Term is: {this.props.search}</h5>
+          <h5>
+            current Search Term is: {this.props.search} | Current Page:{' '}
+            {this.props.page}
+          </h5>
         ) : null}
         <div className="videoList">
           {this.props.currentPageVideos.map(video => (
