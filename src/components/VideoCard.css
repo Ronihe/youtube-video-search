@@ -1,5 +1,11 @@
 .VideoCard {
-  width: 15%;
+  width: 23%;
+  height: 300px;
+  margin-bottom: 1vh;
+  border: 0.1em solid black;
+  font-size: calc(9px+0.5vw);
+  word-wrap: break-word;
+  overflow: hidden;
 }
 
 img {

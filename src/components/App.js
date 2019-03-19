@@ -16,6 +16,9 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <NavLink exact to="/">
+            Roni's Youtube Project
+          </NavLink>
+          <NavLink exact to="/">
             Home Page
           </NavLink>
           <a

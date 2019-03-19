@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getVideos } from '../actions/videos';
-
+import './Search.css';
 /** Search input form
  *
  * used for searching the keys for the videos: just shows form and tracks input.
@@ -22,20 +22,24 @@ class Search extends Component {
 
   handleSubmit = evt => {
     evt.preventDefault();
+    console.log('I am in serch component', this.state.search);
     this.props.getVideos('', this.state.search);
   };
 
   render() {
+    console.log('I am in search bar', this.props.search, this.state.search);
     return (
-      <div>
+      <div className="search">
         <form onSubmit={this.handleSubmit}>
           <input
             onChange={this.handleChange}
             name="search"
             placeholder="Search"
             value={this.state.search}
+            size="70"
           />
           <button> Search </button>
+          <h5>current Search Term is: {this.props.search}</h5>
         </form>
       </div>
     );

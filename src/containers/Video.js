@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import './Video.css';
 class Video extends Component {
   render() {
     console.log('am I the last', this.props.match);

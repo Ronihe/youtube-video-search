@@ -20,6 +20,7 @@ function rootReducer(
     case GET_NEW_VIDEOS:
       const newPage = state.page + 1;
       return {
+        q: state.q,
         page: newPage,
         nextPageToken: action.nextPageToken,
         videos: [...state.videos, ...action.videos]
@@ -27,6 +28,7 @@ function rootReducer(
     case PREVIOUS_PAGE:
       const prePage = state.page > 1 ? state.page - 1 : 1;
       return {
+        q: state.q,
         page: prePage,
         nextPageToken: action.nextPageToken,
         videos: [...state.videos]
@@ -34,6 +36,7 @@ function rootReducer(
     case NEXT_PAGE:
       const nextPage = state.page + 1;
       return {
+        q: state.q,
         page: nextPage,
         nextPageToken: action.nextPageToken,
         videos: [...state.videos]

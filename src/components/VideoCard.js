@@ -8,7 +8,7 @@ class VideoCard extends Component {
         <Link to={'/' + this.props.videoId}>
           <img src={this.props.src} alt={this.props.title} />
           <div>
-            <h4> {this.props.title}</h4>
+            <h5> {this.props.title}</h5>
             <p>
               <small>{this.props.publishedAt}</small>
             </p>
