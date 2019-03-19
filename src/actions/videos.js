@@ -478,7 +478,7 @@ export function getVideos(pageToken = '', q = '') {
   };
 }
 
-function getInitialVideos(q, nextPageToken, videos) {
+export function getInitialVideos(q, nextPageToken, videos) {
   return {
     type: GET_Q,
     q,
@@ -487,7 +487,7 @@ function getInitialVideos(q, nextPageToken, videos) {
   };
 }
 
-function getNewVideos(nextPageToken, videos) {
+export function getNewVideos(nextPageToken, videos) {
   return {
     type: GET_NEW_VIDEOS,
     nextPageToken,
