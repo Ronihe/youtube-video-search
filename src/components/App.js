@@ -31,8 +31,6 @@ class App extends Component {
         </header>
 
         <Switch>
-          {/* <Route exact path="/new"
-                 render={(props) => <Video {...props} />} /> */}
           <Route exact path="/" render={() => <Home />} />
           <Route
             exact
