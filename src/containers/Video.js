@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './Video.css';
 class Video extends Component {
   render() {
-    console.log('am I the last', this.props.match);
+    if (!this.props.video) {
+      return <div />;
+    }
     return (
       <div className="Video">
         <iframe
           title={this.props.video.title}
-          width="420"
+          width="100%"
           height="315"
           src={'https://www.youtube.com/embed/' + this.props.video.videoId}
         />
@@ -36,6 +37,9 @@ class Video extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
+  if (state.videos.length === 0) {
+    return ownProps.history.push('/');
+  }
   const video = state.videos.filter(
     video => video.videoId === ownProps.match.params.videoId
   )[0];

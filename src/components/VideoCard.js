@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './VideoCard.css';
 import { Link } from 'react-router-dom';
 class VideoCard extends Component {
   render() {
@@ -7,14 +6,17 @@ class VideoCard extends Component {
       <div className="VideoCard">
         <Link to={'/' + this.props.videoId}>
           <img src={this.props.src} alt={this.props.title} />
-          <div>
+          <div className="cardContent">
             <h5> {this.props.title}</h5>
             <p>
               <small>{this.props.publishedAt}</small>
             </p>
-            <p>
+            <p style={{ textAlign: 'left' }}>
               {' '}
-              <small>{this.props.description}</small>
+              <small>
+                <b>Description:</b>
+                {this.props.description}
+              </small>
             </p>
           </div>
         </Link>

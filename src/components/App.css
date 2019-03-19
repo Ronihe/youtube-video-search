@@ -1,14 +1,17 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .App-header {
+  width: 100%;
   display: flex;
   background-color: #282c34;
   height: 4vh;
   align-items: center;
   justify-content: space-between;
-  font-size: 2vmin;
   color: white;
 }
 
@@ -24,4 +27,55 @@ a {
 .App-header p {
   padding: 1vmin;
   margin: auto, 2vmin;
+}
+
+.Home {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.videoListWithSeach {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.videoList {
+  width: 80%;
+  display: flex;
+  align-content: space-around;
+  align-items: space-around;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.VideoCard {
+  width: 320px;
+  height: 335px;
+  margin-bottom: 1vh;
+  border: 0.1em solid black;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+.VideoCard img {
+  width: 100%;
+}
+
+.cardContent {
+  margin: 0.5vw;
+}
+.cardContent p,
+.cardContent h5 {
+  margin: 0 0 0.3vh 0;
+}
+
+.search {
+  margin: 3vh 2vh;
+}
+
+.Video {
+  margin: 1vh;
+  width: 420px;
 }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import VideoCard from '../components/VideoCard';
-import './videoList.css';
 class VideoList extends Component {
   componentDidMount() {
     window.addEventListener('scroll', this.infiniteScroll);
@@ -19,10 +18,15 @@ class VideoList extends Component {
 
   render() {
     return (
-      <div className="videoList">
-        {this.props.currentPageVideos.map(video => (
-          <VideoCard {...video} key={video.videoId} />
-        ))}
+      <div className="videoListWithSeach">
+        {this.props.search ? (
+          <h5>current Search Term is: {this.props.search}</h5>
+        ) : null}
+        <div className="videoList">
+          {this.props.currentPageVideos.map(video => (
+            <VideoCard {...video} key={video.videoId} />
+          ))}
+        </div>
       </div>
     );
   }
@@ -31,6 +35,7 @@ function mapStateToProps(state) {
   const startIdx = (state.page - 1) * 12;
   const endIdx = startIdx + 12;
   return {
+    search: state.q,
     currentPageVideos: state.videos.slice(startIdx, endIdx)
   };
 }
