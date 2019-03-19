@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getVideos, previousVideos, getNextVideos } from '../actions/videos';
+import PropTypes from 'prop-types';
 class Pagination extends Component {
   render() {
     return (
@@ -44,4 +45,15 @@ const connected = connect(
   mapStateToProps,
   { getVideos, previousVideos, getNextVideos }
 );
+
+Pagination.propTypes = {
+  previousVideos: PropTypes.func.isRequired,
+  getNextVideos: PropTypes.func.isRequired,
+  getVideos: PropTypes.func.isRequired,
+  page: PropTypes.number.isRequired,
+  length: PropTypes.number.isRequired,
+  pageToken: PropTypes.string.isRequired,
+  search: PropTypes.string.isRequired
+};
+
 export default connected(Pagination);

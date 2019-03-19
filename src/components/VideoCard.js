@@ -26,7 +26,6 @@ class VideoCard extends Component {
   }
 }
 
-VideoCard.defaultProps = {};
 VideoCard.propTypes = {
   title: PropTypes.string.isRequired,
   src: PropTypes.string.isRequired,
