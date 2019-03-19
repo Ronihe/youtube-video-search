@@ -25,7 +25,6 @@ class VideoList extends Component {
   };
 
   render() {
-    console.log('scroll', this.props);
     return (
       <div className="videoListWithSeach">
         {this.props.search ? (
