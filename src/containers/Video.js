@@ -14,14 +14,15 @@ class Video extends Component {
           src={'https://www.youtube.com/embed/' + this.props.video.videoId}
         />
 
-        <div>
-          <h4> {this.props.video.title}</h4>
+        <div className="VideoContent">
+          <h5> {this.props.video.title}</h5>
           <p>
-            <small>{this.props.video.channel}</small>
+            <small>Channel: {this.props.video.channel}</small>
           </p>
           <p>
-            {' '}
-            <small>{this.props.video.description}</small>
+            <b>
+              <small>{this.props.video.description}</small>
+            </b>
           </p>
         </div>
         <button

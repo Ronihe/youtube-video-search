@@ -4,7 +4,7 @@ import { getVideos, previousVideos, getNextVideos } from '../actions/videos';
 class Pagination extends Component {
   render() {
     return (
-      <div>
+      <div className="Pagination">
         {this.props.search ? (
           <div>
             {this.props.page > 1 ? (

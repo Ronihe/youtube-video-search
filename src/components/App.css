@@ -76,6 +76,31 @@ a {
 }
 
 .Video {
-  margin: 1vh;
+  margin: 3vh;
   width: 420px;
+}
+
+.VideoContent {
+  margin: 1vh;
+}
+
+.VideoContent p {
+  text-align: left;
+  word-wrap: break-word;
+  margin: 0 0 1vh 0;
+}
+
+button {
+  color: darkred;
+  border: 1px outset black;
+  padding: 0.5vh 2.5vh;
+  margin: 0.5vh;
+}
+input {
+  border: 1px outset black;
+  padding: 0.5vh 2.5vh;
+  margin: 0.5vh;
+}
+.Pagination {
+  margin-bottom: 1vh;
 }
