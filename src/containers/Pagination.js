@@ -33,7 +33,6 @@ class Pagination extends Component {
   }
 }
 function mapStateToProps(state) {
-  console.log('Pagination, what is my state', state);
   return {
     length: state.videos.length,
     page: state.page,

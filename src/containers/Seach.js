@@ -22,13 +22,11 @@ class Search extends Component {
 
   handleSubmit = evt => {
     evt.preventDefault();
-    console.log('I am in serch component', this.state.search);
     this.props.getVideos('', this.state.search);
     this.setState({ search: '' });
   };
 
   render() {
-    console.log('I am in search bar', this.props.search, this.state.search);
     return (
       <div className="search">
         <form onSubmit={this.handleSubmit}>
