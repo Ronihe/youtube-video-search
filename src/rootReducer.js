@@ -30,7 +30,7 @@ function rootReducer(
       return {
         q: state.q,
         page: prePage,
-        nextPageToken: action.nextPageToken,
+        nextPageToken: state.nextPageToken,
         videos: [...state.videos]
       };
     case NEXT_PAGE:
@@ -38,7 +38,7 @@ function rootReducer(
       return {
         q: state.q,
         page: nextPage,
-        nextPageToken: action.nextPageToken,
+        nextPageToken: state.nextPageToken,
         videos: [...state.videos]
       };
 

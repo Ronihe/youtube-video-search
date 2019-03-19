@@ -52,7 +52,7 @@ Pagination.propTypes = {
   page: PropTypes.number.isRequired,
   length: PropTypes.number.isRequired,
   pageToken: PropTypes.string.isRequired,
-  search: PropTypes.string.isRequired
+  search: PropTypes.string
 };
 
 export default connected(Pagination);

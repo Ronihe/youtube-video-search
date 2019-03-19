@@ -4,6 +4,10 @@ import VideoCard from '../components/VideoCard';
 import { getVideos, previousVideos, getNextVideos } from '../actions/videos';
 
 class VideoList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { scroll: false };
+  }
   componentDidMount() {
     window.addEventListener('scroll', this.infiniteScroll);
   }
@@ -20,7 +24,7 @@ class VideoList extends Component {
         await this.props.getVideos(this.props.pageToken, this.props.search);
       }
 
-      document.documentElement.scrollTop = 100;
+      document.documentElement.scrollTop = 50;
     }
   };
 
