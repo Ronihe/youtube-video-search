@@ -11,7 +11,7 @@ import { getVideos } from '../actions/videos';
 class Search extends Component {
   constructor(props) {
     super(props);
-    this.state = { search: this.props.search };
+    this.state = { search: '' };
   }
 
   handleChange = evt => {
@@ -24,6 +24,7 @@ class Search extends Component {
     evt.preventDefault();
     console.log('I am in serch component', this.state.search);
     this.props.getVideos('', this.state.search);
+    this.setState({ search: '' });
   };
 
   render() {

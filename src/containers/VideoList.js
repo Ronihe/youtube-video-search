@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import VideoCard from '../components/VideoCard';
+import { getVideos, previousVideos, getNextVideos } from '../actions/videos';
+
 class VideoList extends Component {
   componentDidMount() {
     window.addEventListener('scroll', this.infiniteScroll);
@@ -10,13 +12,23 @@ class VideoList extends Component {
     window.removeEventListener('scroll', this.infiniteScroll);
   }
 
-  async infiniteScroll() {
-    if (document.body.scrollHeight - window.innerHeight - window.scrollY < 50) {
-      // go to next page
+  infiniteScroll = async () => {
+    if (
+      document.body.scrollHeight - window.innerHeight - window.scrollY <=
+      10
+    ) {
+      console.log('Iam smaller than 10');
+      if (this.props.page * 12 < this.props.length) {
+        this.props.getNextVideos();
+      } else {
+        await this.props.getVideos(this.props.pageToken, this.props.search);
+      }
+      document.documentElement.scrollTop = 100;
     }
-  }
+  };
 
   render() {
+    console.log('scroll', this.props);
     return (
       <div className="videoListWithSeach">
         {this.props.search ? (
@@ -35,9 +47,15 @@ function mapStateToProps(state) {
   const startIdx = (state.page - 1) * 12;
   const endIdx = startIdx + 12;
   return {
+    length: state.videos.length,
+    pageToken: state.nextPageToken,
+    page: state.page,
     search: state.q,
     currentPageVideos: state.videos.slice(startIdx, endIdx)
   };
 }
-const connected = connect(mapStateToProps);
+const connected = connect(
+  mapStateToProps,
+  { getVideos, previousVideos, getNextVideos }
+);
 export default connected(VideoList);

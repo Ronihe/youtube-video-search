@@ -13,7 +13,7 @@ function rootReducer(
     case GET_Q:
       return {
         q: action.q,
-        page: state.page,
+        page: 1,
         nextPageToken: action.nextPageToken,
         videos: action.videos
       };
