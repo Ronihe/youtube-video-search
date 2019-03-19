@@ -12,6 +12,10 @@ const KEY = 'AIzaSyBYjNe14Q0ik3HdVS-qFZkjadzYQ-iKaA0';
 export function getVideos(pageToken = '', q = '') {
   return async function(dispatch) {
     try {
+      if (!q) {
+        alert('Hi, What videos do you want to search?');
+        return;
+      }
       // const response = await axios.get(
       //   `${BASE_URL}?key=${KEY}&q=${q}&maxResults=${MAX}&part=snippet&pageToken=${pageToken}&type=video`
       // );

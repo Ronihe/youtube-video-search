@@ -29,7 +29,7 @@ class VideoList extends Component {
       <div className="videoListWithSeach">
         {this.props.search ? (
           <h5>
-            current Search Term is: {this.props.search} | Current Page:{' '}
+            Current Search Term is: {this.props.search} | Current Page:{' '}
             {this.props.page}
           </h5>
         ) : null}
