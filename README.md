@@ -12,7 +12,7 @@
 
 ## Branch Introduction
 
-<b>master: </b> all the above features with pagination
+<b>master: </b> all the above features with pagination  
 <b>github-deployment: </b> all the above features with infinite scroll
 
 ## Tech/framework used
