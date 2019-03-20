@@ -14,6 +14,7 @@ const store = createStore(
   rootReducer,
   compose(
     applyMiddleware(thunk)
+    // for some browsers do not have redux tools
     //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 );
