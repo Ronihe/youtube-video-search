@@ -8,7 +8,7 @@
 2. Pagination for the list of displayed videos
 3. You can click on one of those videos to watch it
 4. After you click on the one of videos, you will get redirect to another page( using react router)
-5. Infinite Scroll - Instead of pagination I created infinite scroll in branch github-deployment, It is also deployed in [ronihe.github.io/youtube-video-search/](https://ronihe.github.io/youtube-video-search/)
+5. Infinite Scroll - Instead of pagination I created infinite scroll in branch github-deployment, It is also deployed in [Live version is here](https://ronihe.github.io/youtube-video-search/)
 
 ## Branch Introduction
 
@@ -24,7 +24,7 @@
 - React-Router - routing library for React
 - Redux - library for React state management
 - Redux-thunk - library extending redux to handle async actions
-- css -  a stylesheet language to describe the presentation of a document written in HTML or XML
+- CSS - a stylesheet language to describe the presentation of a document written in HTML or XML
 - Axios - request library
 
 ## API Reference
@@ -33,10 +33,14 @@
 
 ## Tests
 
+<b> Test Stack </b>
 
+- Jest - testing framework
+- Enzyme - component testing
+- Redux-mock-store - redux store mocking library
+- fetch-mock - http requests mocking library
+- Prop-types - prop type definition validation
 
-## How to use?
-
-If people like your project they’ll want to learn how they can use it. To do so include step by step guide to use your project.
-
-
+<b> Test Coverage </b>
+<img src='./img/test1.png'>
+<img src='./img/test2.png'>
