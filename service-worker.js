@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/youtube-video-search2/precache-manifest.f5389ccb9c10da66693b929a6933d5ad.js"
+  "/youtube-video-search/precache-manifest.b523e5e83583ed29d93a55d4943cc1e1.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/youtube-video-search2/index.html", {
+workbox.routing.registerNavigationRoute("/youtube-video-search/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
