@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import VideoCard from '../components/VideoCard';
-import { getVideos, previousVideos, getNextVideos } from '../actions/videos';
+import { getVideos } from '../actions/videos';
 
 class VideoList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { scroll: false };
-  }
   componentDidMount() {
     window.addEventListener('scroll', this.infiniteScroll);
   }
@@ -19,15 +15,9 @@ class VideoList extends Component {
   infiniteScroll = async () => {
     if (
       document.body.scrollHeight - window.innerHeight - window.scrollY <=
-      500
+      400
     ) {
-      if (this.props.page * 12 < this.props.length) {
-        this.props.getNextVideos();
-      } else {
-        await this.props.getVideos(this.props.pageToken, this.props.search);
-      }
-
-      //  document.documentElement.scrollTop = 50;
+      await this.props.getVideos(this.props.pageToken, this.props.search);
     }
   };
 
@@ -35,10 +25,7 @@ class VideoList extends Component {
     return (
       <div className="videoListWithSeach">
         {this.props.search ? (
-          <h5>
-            Current Search Term is: {this.props.search} | Current Page:{' '}
-            {this.props.page}
-          </h5>
+          <h5>Current Search Term is: {this.props.search}</h5>
         ) : null}
         <div className="videoList">
           {this.props.currentPageVideos.map(video => (
@@ -50,19 +37,15 @@ class VideoList extends Component {
   }
 }
 function mapStateToProps(state) {
-  // const startIdx = (state.page - 1) * 12;
-  // const endIdx = startIdx + 12;
   return {
     length: state.videos.length,
     pageToken: state.nextPageToken,
-    page: state.page,
     search: state.q,
-    // currentPageVideos: state.videos.slice(startIdx, endIdx)
     currentPageVideos: state.videos
   };
 }
 const connected = connect(
   mapStateToProps,
-  { getVideos, previousVideos, getNextVideos }
+  { getVideos }
 );
 export default connected(VideoList);

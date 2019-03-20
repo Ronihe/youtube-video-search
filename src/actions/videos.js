@@ -69,15 +69,3 @@ export function getNewVideos(nextPageToken, videos) {
     videos
   };
 }
-
-export function previousVideos() {
-  return {
-    type: PREVIOUS_PAGE
-  };
-}
-
-export function getNextVideos() {
-  return {
-    type: NEXT_PAGE
-  };
-}

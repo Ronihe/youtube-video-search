@@ -10,7 +10,6 @@ describe('videos reducers', () => {
     expect(reducer(undefined, {})).toEqual({
       q: '',
       nextPageToken: '',
-      page: 1,
       videos: []
     });
   });
@@ -21,7 +20,6 @@ describe('videos reducers', () => {
         {
           q: '',
           nextPageToken: '',
-          page: 1,
           videos: []
         },
         {
@@ -33,7 +31,6 @@ describe('videos reducers', () => {
       )
     ).toEqual({
       q,
-      page: 1,
       nextPageToken,
       videos
     });
@@ -45,7 +42,6 @@ describe('videos reducers', () => {
       reducer(
         {
           q,
-          page: 1,
           nextPageToken,
           videos
         },
@@ -53,7 +49,6 @@ describe('videos reducers', () => {
       )
     ).toEqual({
       q,
-      page: 2,
       nextPageToken,
       videos: [...videos, ...videos]
     });
@@ -64,7 +59,6 @@ describe('videos reducers', () => {
       reducer(
         {
           q,
-          page: 2,
           nextPageToken,
           videos: [...videos, ...videos]
         },
@@ -72,7 +66,6 @@ describe('videos reducers', () => {
       )
     ).toEqual({
       q,
-      page: 1,
       nextPageToken,
       videos: [...videos, ...videos]
     });
@@ -83,7 +76,6 @@ describe('videos reducers', () => {
       reducer(
         {
           q,
-          page: 1,
           nextPageToken,
           videos: [...videos, ...videos]
         },
@@ -91,7 +83,6 @@ describe('videos reducers', () => {
       )
     ).toEqual({
       q,
-      page: 2,
       nextPageToken,
       videos: [...videos, ...videos]
     });

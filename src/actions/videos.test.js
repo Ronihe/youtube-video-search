@@ -9,10 +9,6 @@ const q = 'cat';
 const nextPageToken = 'testToken';
 const videos = [{ test1: 'test1' }, { test2: 'test2' }];
 
-const BASE_URL = 'https://www.googleapis.com/youtube/v3/search';
-const MAX = 12;
-const KEY = 'testing';
-
 describe('actions', () => {
   it('should create an action to get initial videos from youtube API', () => {
     const expectedAction = {
