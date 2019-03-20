@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import VideoCard from '../components/VideoCard';
 import { getVideos } from '../actions/videos';
+const uuidv4 = require('uuid/v4');
 
 class VideoList extends Component {
   componentDidMount() {
@@ -13,10 +14,7 @@ class VideoList extends Component {
   }
 
   infiniteScroll = async () => {
-    if (
-      document.body.scrollHeight - window.innerHeight - window.scrollY <=
-      400
-    ) {
+    if (document.body.scrollHeight - window.innerHeight - window.scrollY < 50) {
       await this.props.getVideos(this.props.pageToken, this.props.search);
     }
   };
@@ -29,7 +27,7 @@ class VideoList extends Component {
         ) : null}
         <div className="videoList">
           {this.props.currentPageVideos.map(video => (
-            <VideoCard {...video} key={video.videoId} />
+            <VideoCard {...video} key={uuidv4()} />
           ))}
         </div>
       </div>

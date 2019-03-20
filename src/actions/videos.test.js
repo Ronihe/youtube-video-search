@@ -30,18 +30,6 @@ describe('actions', () => {
     };
     expect(actions.getNewVideos(nextPageToken, videos)).toEqual(expectedAction);
   });
-  it('should create an action to get previous videos from state', () => {
-    const expectedAction = {
-      type: types.PREVIOUS_PAGE
-    };
-    expect(actions.previousVideos()).toEqual(expectedAction);
-  });
-  it('should create an action to get next videos from state', () => {
-    const expectedAction = {
-      type: types.NEXT_PAGE
-    };
-    expect(actions.getNextVideos()).toEqual(expectedAction);
-  });
 });
 
 //Tesst Async Action Creators
