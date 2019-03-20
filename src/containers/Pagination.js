@@ -8,6 +8,28 @@ import PropTypes from 'prop-types';
  *
  */
 class Pagination extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { getAPI: true };
+  }
+
+  nextPage = async () => {
+    if (this.state.getAPI) {
+      if (this.props.page * 12 < this.props.length) {
+        this.props.getNextVideos();
+      } else {
+        this.setState({ getAPI: false });
+        const result = await this.props.getVideos(
+          this.props.pageToken,
+          this.props.search
+        );
+        if (result) {
+          this.setState({ getAPI: true });
+        }
+      }
+    }
+  };
+
   render() {
     return (
       <div className="Pagination">
@@ -17,20 +39,7 @@ class Pagination extends Component {
               <button onClick={this.props.previousVideos}> previous </button>
             ) : null}
             {this.props.page}
-            <button
-              onClick={
-                this.props.page * 12 < this.props.length
-                  ? this.props.getNextVideos
-                  : () => {
-                      this.props.getVideos(
-                        this.props.pageToken,
-                        this.props.search
-                      );
-                    }
-              }
-            >
-              Next
-            </button>
+            <button onClick={this.nextPage}>Next</button>
           </div>
         ) : null}
       </div>
