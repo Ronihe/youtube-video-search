@@ -2,40 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import VideoCard from '../components/VideoCard';
 import { getVideos, previousVideos, getNextVideos } from '../actions/videos';
+import PropTypes from 'prop-types';
 
 class VideoList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { scroll: false };
-  }
-  componentDidMount() {
-    window.addEventListener('scroll', this.infiniteScroll);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.infiniteScroll);
-  }
-
-  infiniteScroll = async () => {
-    if (document.body.scrollHeight - window.innerHeight - window.scrollY <= 0) {
-      if (this.props.page * 12 < this.props.length) {
-        this.props.getNextVideos();
-      } else {
-        await this.props.getVideos(this.props.pageToken, this.props.search);
-      }
-
-      document.documentElement.scrollTop = 50;
-    }
-  };
-
   render() {
     return (
       <div className="videoListWithSeach">
         {this.props.search ? (
-          <h5>
-            Current Search Term is: {this.props.search} | Current Page:{' '}
-            {this.props.page}
-          </h5>
+          <h5>Current Search Term is: {this.props.search}</h5>
         ) : null}
         <div className="videoList">
           {this.props.currentPageVideos.map(video => (
@@ -61,4 +35,15 @@ const connected = connect(
   mapStateToProps,
   { getVideos, previousVideos, getNextVideos }
 );
+
+VideoList.propTypes = {
+  currentPageVideos: PropTypes.array.isRequired,
+  page: PropTypes.number.isRequired,
+  length: PropTypes.number.isRequired,
+  pageToken: PropTypes.string.isRequired,
+  search: PropTypes.string,
+  previousVideos: PropTypes.func.isRequired,
+  getNextVideos: PropTypes.func.isRequired,
+  getVideos: PropTypes.func.isRequired
+};
 export default connected(VideoList);

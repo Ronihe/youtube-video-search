@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getVideos } from '../actions/videos';
+import PropTypes from 'prop-types';
 
 /** Search input form
  *
@@ -54,4 +55,8 @@ const connected = connect(
   { getVideos }
 );
 
+Search.propTypes = {
+  search: PropTypes.string,
+  getVideos: PropTypes.func.isRequired
+};
 export default connected(Search);

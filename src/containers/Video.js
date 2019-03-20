@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 class Video extends Component {
   render() {
     if (!this.props.video) {
@@ -49,4 +50,9 @@ function mapStateToProps(state, ownProps) {
   };
 }
 const connected = connect(mapStateToProps);
+
+Video.propTypes = {
+  video: PropTypes.object.isRequired
+};
+
 export default connected(Video);

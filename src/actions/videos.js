@@ -5,9 +5,9 @@ const BASE_URL = 'https://www.googleapis.com/youtube/v3/search';
 const MAX = 12;
 
 //const KEY = 'AIzaSyCY6AZpSw-4mNJRbmCn_Bp8T4jTiANrwjM';
-//const KEY = 'AIzaSyAPw5O_9xI4yN_mxAepfwuS_Rn2qZieR5A';
+const KEY = 'AIzaSyAPw5O_9xI4yN_mxAepfwuS_Rn2qZieR5A';
 
-const KEY = 'AIzaSyBYjNe14Q0ik3HdVS-qFZkjadzYQ-iKaA0';
+//const KEY = 'AIzaSyBYjNe14Q0ik3HdVS-qFZkjadzYQ-iKaA0';
 
 export function getVideos(pageToken = '', q = '') {
   return async function(dispatch) {
