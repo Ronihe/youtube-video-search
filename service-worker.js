@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Ronihe/youtube-video-search/precache-manifest.2aa459d5b89d138077ad2e7aef103f7a.js"
+  "/youtube-video-search2/precache-manifest.f5389ccb9c10da66693b929a6933d5ad.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/Ronihe/youtube-video-search/index.html", {
+workbox.routing.registerNavigationRoute("/youtube-video-search2/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });

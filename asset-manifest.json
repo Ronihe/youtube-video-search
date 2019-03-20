@@ -1,13 +1,13 @@
 {
-  "main.css": "/Ronihe/youtube-video-search/static/css/main.971411fc.chunk.css",
-  "main.js": "/Ronihe/youtube-video-search/static/js/main.f9d47049.chunk.js",
-  "main.js.map": "/Ronihe/youtube-video-search/static/js/main.f9d47049.chunk.js.map",
-  "runtime~main.js": "/Ronihe/youtube-video-search/static/js/runtime~main.e3767c2e.js",
-  "runtime~main.js.map": "/Ronihe/youtube-video-search/static/js/runtime~main.e3767c2e.js.map",
-  "static/js/2.c16fed35.chunk.js": "/Ronihe/youtube-video-search/static/js/2.c16fed35.chunk.js",
-  "static/js/2.c16fed35.chunk.js.map": "/Ronihe/youtube-video-search/static/js/2.c16fed35.chunk.js.map",
-  "index.html": "/Ronihe/youtube-video-search/index.html",
-  "precache-manifest.2aa459d5b89d138077ad2e7aef103f7a.js": "/Ronihe/youtube-video-search/precache-manifest.2aa459d5b89d138077ad2e7aef103f7a.js",
-  "service-worker.js": "/Ronihe/youtube-video-search/service-worker.js",
-  "static/css/main.971411fc.chunk.css.map": "/Ronihe/youtube-video-search/static/css/main.971411fc.chunk.css.map"
+  "main.css": "/youtube-video-search2/static/css/main.971411fc.chunk.css",
+  "main.js": "/youtube-video-search2/static/js/main.1dea07d3.chunk.js",
+  "main.js.map": "/youtube-video-search2/static/js/main.1dea07d3.chunk.js.map",
+  "runtime~main.js": "/youtube-video-search2/static/js/runtime~main.9272085e.js",
+  "runtime~main.js.map": "/youtube-video-search2/static/js/runtime~main.9272085e.js.map",
+  "static/js/2.c16fed35.chunk.js": "/youtube-video-search2/static/js/2.c16fed35.chunk.js",
+  "static/js/2.c16fed35.chunk.js.map": "/youtube-video-search2/static/js/2.c16fed35.chunk.js.map",
+  "index.html": "/youtube-video-search2/index.html",
+  "precache-manifest.f5389ccb9c10da66693b929a6933d5ad.js": "/youtube-video-search2/precache-manifest.f5389ccb9c10da66693b929a6933d5ad.js",
+  "service-worker.js": "/youtube-video-search2/service-worker.js",
+  "static/css/main.971411fc.chunk.css.map": "/youtube-video-search2/static/css/main.971411fc.chunk.css.map"
 }
