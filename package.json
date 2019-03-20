@@ -19,7 +19,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "test": "react-scripts test",
+    "test": "xo && react-scripts test",
     "test:watch": "npm test -- --watch",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
@@ -41,6 +41,7 @@
     "fetch-mock": "^7.3.1",
     "gh-pages": "^2.0.1",
     "jest": "23.6.0",
-    "redux-mock-store": "^1.5.3"
+    "redux-mock-store": "^1.5.3",
+    "xo": "^0.24.0"
   }
 }

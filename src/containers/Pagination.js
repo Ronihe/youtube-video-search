@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getVideos, previousVideos, getNextVideos } from '../actions/videos';
 import PropTypes from 'prop-types';
+/**
+ *Pagination component, previous button to go back to see the previous 12 videos, next button go to see the next 12 videos
+ *next button either go to get the data from the redux state or call API
+ *
+ */
 class Pagination extends Component {
   render() {
     return (
