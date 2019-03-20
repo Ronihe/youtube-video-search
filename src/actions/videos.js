@@ -27,7 +27,7 @@ export function getVideos(pageToken = '', q = '') {
         }
       });
       const nextPageToken = response.data.nextPageToken;
-
+      console.log(nextPageToken);
       const videos = response.data.items.map(video => ({
         videoId: video.id.videoId,
         src: video.snippet.thumbnails.medium.url,

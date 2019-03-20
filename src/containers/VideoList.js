@@ -5,6 +5,10 @@ import { getVideos } from '../actions/videos';
 const uuidv4 = require('uuid/v4');
 
 class VideoList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { getAPI: true };
+  }
   componentDidMount() {
     window.addEventListener('scroll', this.infiniteScroll);
   }
@@ -14,8 +18,18 @@ class VideoList extends Component {
   }
 
   infiniteScroll = async () => {
-    if (document.body.scrollHeight - window.innerHeight - window.scrollY < 50) {
-      await this.props.getVideos(this.props.pageToken, this.props.search);
+    if (
+      document.body.scrollHeight - window.innerHeight - window.scrollY < 50 &&
+      this.state.getAPI
+    ) {
+      this.setState({ getAPI: false });
+      let result = await this.props.getVideos(
+        this.props.pageToken,
+        this.props.search
+      );
+      if (result) {
+        this.setState({ getAPI: true });
+      }
     }
   };
 
